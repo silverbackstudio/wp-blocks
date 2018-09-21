@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-function svbk_block_cgb_block_assets() {
+function svbk_blocks_block_assets() {
 	// Styles.
 	wp_enqueue_style(
 		'svbk_block-cgb-style-css', // Handle.
@@ -28,10 +28,10 @@ function svbk_block_cgb_block_assets() {
 		array( 'wp-blocks' ) // Dependency to include the CSS after it.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: filemtime — Gets file modification time.
 	);
-} // End function svbk_block_cgb_block_assets().
+} // End function svbk_blocks_block_assets().
 
 // Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'svbk_block_cgb_block_assets' );
+add_action( 'enqueue_block_assets', 'svbk_blocks_block_assets' );
 
 /**
  * Enqueue Gutenberg block assets for backend editor.
@@ -42,13 +42,13 @@ add_action( 'enqueue_block_assets', 'svbk_block_cgb_block_assets' );
  *
  * @since 1.0.0
  */
-function svbk_block_cgb_editor_assets() {
+function svbk_blocks_editor_assets() {
 	// Scripts.
 	wp_enqueue_script(
 		'svbk_block-cgb-block-js', // Handle.
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
 		array( 'wp-blocks', 'wp-i18n', 'wp-element' ), // Dependencies, defined above.
-		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
 	);
 
@@ -56,10 +56,10 @@ function svbk_block_cgb_editor_assets() {
 	wp_enqueue_style(
 		'svbk_block-cgb-block-editor-css', // Handle.
 		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
-		array( 'wp-edit-blocks' ) // Dependency to include the CSS after it.
-		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: filemtime — Gets file modification time.
+		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
+		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: filemtime — Gets file modification time.
 	);
-} // End function svbk_block_cgb_editor_assets().
+} // End function svbk_blocks_editor_assets().
 
 // Hook: Editor assets.
-add_action( 'enqueue_block_editor_assets', 'svbk_block_cgb_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'svbk_blocks_editor_assets' );
