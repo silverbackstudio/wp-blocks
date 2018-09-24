@@ -135,8 +135,7 @@ registerBlockType( 'svbk/container', {
 				el(
 					'div', 
 					{
-						className: 'content-wrapper',
-						id: htmlId
+						className: 'content-wrapper'
 					}, 
 					el( 
 						InnerBlocks.Content
