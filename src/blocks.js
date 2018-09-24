@@ -10,3 +10,4 @@
  */
 
 import './container/block.js';
+import './section/block.js';

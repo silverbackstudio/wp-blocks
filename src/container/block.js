@@ -32,26 +32,6 @@ registerBlockType( 'svbk/container', {
         },        
     },
     
-	// transforms: {
-	// 	from: [
-	// 		{
-	// 			type: 'raw',
-	// 			priority: 5,
-	// 			schema: {
-	// 				section: { }
-	// 			},
-	// 			transform: ( node ) => {
-	// 				console.log(node);
-					
-	// 				const className = node.className;
-	// 				const blockType = getBlockType( 'svbk/container' );
-	// 				const attributes = getBlockAttributes( blockType, node.outerHTML, {} );
-	// 				return createBlock( 'core/container', attributes );
-	// 			},
-	// 		}
-	// 	]
-	// },
-
     edit: function( props ) {
         var wrap = props.attributes.wrap,
             htmlId = props.attributes.htmlId;
