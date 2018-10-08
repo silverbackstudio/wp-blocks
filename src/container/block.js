@@ -15,10 +15,14 @@ var el = wp.element.createElement,
 registerBlockType( 'svbk/container', {
     title: 'Container',
 
-    icon: 'universal-access-alt',
+    icon: 'editor-contract',
 
     category: 'layout',
 
+	template:[
+		[ 'core/heading', {} ]
+	],
+	
     attributes: {
         htmlId: {
             type: 'string',
@@ -31,6 +35,10 @@ registerBlockType( 'svbk/container', {
             default: false
         },        
     },
+    
+	supports: {
+		align: [ 'wide', 'full' ],
+	},    
     
     edit: function( props ) {
         var wrap = props.attributes.wrap,

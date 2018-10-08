@@ -9,5 +9,5 @@
  * Webpack is compiling as the input file.
  */
 
-import './container/block.js';
+import './container/block.next.js';
 import './section/block.js';
